@@ -1,4 +1,4 @@
-SCORE_LOG = 'BVvBP.txt'
+SCORE_LOG = 'FreshmanBoysVSonora.txt'
 
 import json
 
@@ -20,9 +20,9 @@ def _normalize_clock(clock: str, period: str) -> float:
 
     return (QUARTER_TIME * quarter) - t
 
-HOME_DATA = []
-AWAY_DATA = []
-DIFF_DATA = []
+HOME_DATA = [(0, 0)]
+AWAY_DATA = [(0, 0)]
+DIFF_DATA = [(0, 0)]
 
 for i in range(1, len(LOG)):
     x = _normalize_clock(LOG[i]['clock'], LOG[i]['period'])
@@ -53,10 +53,11 @@ ax.set_ylabel('Score', color='white')
 ax.tick_params(color='white')
 ax.set_facecolor('black')
 ax.grid(True, color='white')
-ax.step([d[0] for d in HOME_DATA], [d[1] for d in HOME_DATA], color='red', linewidth=2)
-ax.step([d[0] for d in AWAY_DATA], [d[1] for d in AWAY_DATA], color='green', linewidth=2)
+ax.step([d[0] for d in AWAY_DATA], [d[1] for d in AWAY_DATA], color='blue', linewidth=2, where='post')
+ax.step([d[0] for d in HOME_DATA], [d[1] for d in HOME_DATA], color='red', linewidth=2, where='post')
 
 # ax[1].set_xticks([QUARTER_TIME * q for q in range(0, 4)], ['Q1', 'Q2', 'Q3', 'Q4'])
 # ax[1].grid(True)
 # ax[1].step([d[0] for d in DIFF_DATA], [d[1] for d in DIFF_DATA])
-fig.savefig('bv-bp.png')
+# ax[1].set_ylim([-15, 15])
+fig.savefig('fr-sohs.png')
