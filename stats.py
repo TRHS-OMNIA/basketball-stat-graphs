@@ -1,4 +1,4 @@
-SCORE_LOG = 'FreshmanBoysVSonora.txt'
+SCORE_LOG = 'GVvFUHS.txt'
 
 import json
 
@@ -53,11 +53,11 @@ ax.set_ylabel('Score', color='white')
 ax.tick_params(color='white')
 ax.set_facecolor('black')
 ax.grid(True, color='white')
-ax.step([d[0] for d in AWAY_DATA], [d[1] for d in AWAY_DATA], color='blue', linewidth=2, where='post')
+ax.step([d[0] for d in AWAY_DATA], [d[1] for d in AWAY_DATA], color='white', linewidth=2, where='post')
 ax.step([d[0] for d in HOME_DATA], [d[1] for d in HOME_DATA], color='red', linewidth=2, where='post')
 
 # ax[1].set_xticks([QUARTER_TIME * q for q in range(0, 4)], ['Q1', 'Q2', 'Q3', 'Q4'])
 # ax[1].grid(True)
 # ax[1].step([d[0] for d in DIFF_DATA], [d[1] for d in DIFF_DATA])
 # ax[1].set_ylim([-15, 15])
-fig.savefig('fr-sohs.png')
+fig.savefig(SCORE_LOG.replace('.txt', '.png'))
